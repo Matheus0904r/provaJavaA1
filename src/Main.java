@@ -6,6 +6,5 @@ public class Main {
         int teste = input.lerInt("Teste request");
         System.out.println(teste);
 
-
     }
 }
