@@ -11,27 +11,11 @@ public abstract class Produto {
         this.setQuantidade(quantidade);
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public float getPreco() {
-        return preco;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
+    public String getNome() { return nome; }
+    public int getQuantidade() { return quantidade; }
+    public float getPreco() { return preco; }
+    
+    public void setNome(String nome) { this.nome = nome; }
+    public void setPreco(float preco) { this.preco = preco; }
+    public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
 }

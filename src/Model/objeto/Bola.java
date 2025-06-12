@@ -12,21 +12,11 @@ public class Bola extends Brinquedo {
         this.setCosturada(costurada);
     }
 
-    public String getCor() {
-        return cor;
-    }
-
-    public boolean isCosturada() {
-        return costurada;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
-
-    public void setCosturada(boolean costurada) {
-        this.costurada = costurada;
-    }
+    public String getCor() { return cor; }
+    public boolean isCosturada() { return costurada; }
+    
+    public void setCor(String cor) { this.cor = cor; }
+    public void setCosturada(boolean costurada) { this.costurada = costurada; }
 
     public void editarProduto(String nome, float preco, int quantidade, String faixaEtaria, String material, String genero, String cor, boolean costurada) {
         this.setNome(nome);
