@@ -10,7 +10,6 @@ public class Coleira extends Pet {
         super(nome, preco, quantidade, tipo, uso, tamanho, marca);
         this.setCor(cor);
         this.setPingente(pingente);
-
     }
 
     public String getCor() { return this.cor; }
