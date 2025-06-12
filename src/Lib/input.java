@@ -3,31 +3,32 @@ package Lib;
 import java.util.Scanner;
 
 public class input {
-    static Scanner scan;
-
-    public input() {
-    }
-
-    public static String lerStr(String text) {
-        System.out.println(text);
-        return scan.nextLine();
-    }
+    private static final Scanner scan = new Scanner(System.in);
 
     public static int lerInt(String text) {
-        System.out.println(text);
-
-        while(true) {
+        while (true) {
             try {
-                int i = Integer.parseInt(scan.nextLine());
-                return i;
-            } catch (NumberFormatException var2) {
-                System.out.println("Input não é um número.");
-                System.out.println("Tente novamente.");
+                System.out.print(text);
+                return Integer.parseInt(scan.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Erro: entrada inválida. Digite um número inteiro.");
             }
         }
     }
 
-    static {
-        scan = new Scanner(System.in);
+    public static float lerFloat(String text) {
+        while (true) {
+            try {
+                System.out.print(text);
+                return Float.parseFloat(scan.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Erro: entrada inválida. Digite um número decimal.");
+            }
+        }
+    }
+
+    public static String lerStr(String text) {
+        System.out.print(text);
+        return scan.nextLine();
     }
 }
