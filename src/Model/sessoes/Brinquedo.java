@@ -38,8 +38,6 @@ public abstract class Brinquedo extends Produto {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-
-    protected abstract void editarProduto(String nome, float preco, int quantidade, String faixaEtaria, String material, String genero, String cor, boolean costurada);
 }
 
 

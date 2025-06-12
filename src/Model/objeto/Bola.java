@@ -28,7 +28,6 @@ public class Bola extends Brinquedo {
         this.costurada = costurada;
     }
 
-
     public void editarProduto(String nome, float preco, int quantidade, String faixaEtaria, String material, String genero, String cor, boolean costurada) {
         this.setNome(nome);
         this.setPreco(preco);
@@ -39,5 +38,4 @@ public class Bola extends Brinquedo {
         this.setCor(cor);
         this.setCosturada(costurada);
     }
-
 }
