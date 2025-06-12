@@ -15,13 +15,13 @@ public class Borracha extends Papelaria {
 
     public void setFormato(String formato) {this.formato = formato;}
 
-    public void editarProduto(String nome, float preco, int quantidade, String cor, String marca, String especificacoes, String formato) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setCor(cor);
-        this.setMarca(marca);
-        this.setEspecificacoes(especificacoes);
-        this.setFormato(formato);
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Cor: " + getCor());
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Especificações: " + getEspecificacoes());
+        System.out.println("Formato: " + getFormato());
     }
 }

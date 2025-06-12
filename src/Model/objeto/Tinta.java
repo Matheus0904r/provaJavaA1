@@ -18,13 +18,13 @@ public class Tinta extends Ferragens {
     public void setMetalica(String metalica) {
         this.metalica = metalica;
     }
-
-    public void editaProduto(String nome, float preco, int quantidade, float peso, String marca, String metalica) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setPeso(peso);
-        this.setMarca(marca);
-        this.setMetalica(metalica);
+    
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Peso: " + getPeso());
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Metalica: " + getMetalica());
     }
 }

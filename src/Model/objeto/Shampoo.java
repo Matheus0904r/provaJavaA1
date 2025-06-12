@@ -10,36 +10,23 @@ public class Shampoo extends Pet {
         super(nome, preco, quantidade, tipo, uso, tamanho, marca);
         this.setAntipulgas(antipulgas);
         this.setML(ml);
-
     }
 
     public String getAntipulgas() { return this.antipulgas; }
-    public int getMl() { return this.ml; }
+    public int getML() { return this.ml; }
 
     public void setAntipulgas(String antipulgas) {  this.antipulgas = antipulgas; }
     public void setML(int ml) {  this.ml = ml; }
 
-    public void editarProduto(String nome, float preco, int quantidade, String tipo, String uso, float tamanho, String marca, int ml, String antipulgas){
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setTipo(tipo);
-        this.setUso(uso);
-        this.setTamanho(tamanho);
-        this.setMarca(marca);
-        this.setML(ml);
-        this.setAntipulgas(antipulgas);
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Tipo: " + getTipo());
+        System.out.println("Uso: " + getUso());
+        System.out.println("Tamanho: " + getTamanho());
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Ml: " + getML());
+        System.out.println("Antipulgas: " + getAntipulgas());
     }
-    public String toString() {
-        return "Nome: " + this.getNome() +
-                "Preço: " + this.getPreco() +
-                "Quantidade: " + this.getQuantidade() +
-                "Tipo: " + this.getTipo() +
-                "Uso: " + this.getUso() +
-                "Tamnho: " + this.getTamanho() +
-                "Marca: " + this.getMarca() +
-                "Ml: " + this.getMl()+
-                "Antipulgas: " + this.getAntipulgas();
-    }
-
 }

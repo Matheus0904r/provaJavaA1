@@ -14,23 +14,13 @@ public class Papel extends Papelaria {
 
     public void setTipo(String tipo) { this.tipo = tipo; }
 
-    public void editarProduto (String nome, float preco, int quantidade, String cor, String marca, String especificacoes, String tipo) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setCor(cor);
-        this.setMarca(marca);
-        this.setEspecificacoes(especificacoes);
-        this.setTipo(tipo);
-    }
-
-    public String toString() {
-        return  "Nome: " + this.getNome() +
-                "Preço: " + this.getPreco() +
-                "Quantidade: " + this.getQuantidade() +
-                "Cor: " + this.getCor() +
-                "Marca: " + this.getMarca() +
-                "Especificações: " + this.getEspecificacoes() +
-                "Tipo: " + this.getTipo();
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Cor: " + getCor());
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Especificações: " + getEspecificacoes());
+        System.out.println("Tipo: " + getTipo());
     }
 }

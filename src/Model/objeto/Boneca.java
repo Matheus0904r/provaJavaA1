@@ -18,25 +18,14 @@ public class Boneca extends Brinquedo {
     public void setCor(String cor) { this.cor = cor; }
     public void setRoupa(String roupa) { this.roupa = roupa; }
 
-    public void editarProduto(String nome, float preco, int quantidade, String faixaEtaria, String material, String genero, String cor, String roupa){
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setFaixaEtaria(faixaEtaria);
-        this.setMaterial(material);
-        this.setGenero(genero);
-        this.setCor(cor);
-        this.setRoupa(roupa);
-    }
-
-    public String toString() {
-        return "Nome: " + this.getNome() +
-                "Preço: " + this.getPreco() +
-                "Quantidade: " + this.getQuantidade() +
-                "Faixa etaria: " + this.getFaixaEtaria() +
-                "Material : " + this.getMaterial() +
-                "Genero: " + this.getGenero() +
-                "Cor: " + this.getCor() +
-                "Roupa :" + this.getRoupa();
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Faixa Etária: " + getFaixaEtaria());
+        System.out.println("Material: " + getMaterial());
+        System.out.println("Genero: " + getGenero());
+        System.out.println("Cor: " + getCor());
+        System.out.println("Roupa: " + getRoupa());
     }
 }

@@ -18,24 +18,14 @@ public class Carrinho extends Brinquedo {
     public void setRoda(String roda) { this.roda = roda;}
     public void setCor(String cor) { this.cor = cor; }
 
-    public void editarProduto (String nome, float preco, int quantidade, String faixaEtaria, String material, String genero, String cor, String roda) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setFaixaEtaria(faixaEtaria);
-        this.setMaterial(material);
-        this.setGenero(genero);
-        this.setCor(cor);
-        this.setRoda(roda);
-    }
-    public String toString() {
-        return "Nome: " + this.getNome() +
-                "Preço: " + this.getPreco() +
-                "Quantidade: " + this.getQuantidade() +
-                "Faixa etaria: " + this.getFaixaEtaria() +
-                "Material: " + this.getMaterial() +
-                "Genero: " + this.getGenero() +
-                "Cor: " + this.getCor() +
-                "Roda: " + this.getRoda();
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Uso Externo: " + getFaixaEtaria());
+        System.out.println("Material: " + getMaterial());
+        System.out.println("Genero: " + getGenero());
+        System.out.println("Cor: " + getCor());
+        System.out.println("Roda: " + getRoda());
     }
 }

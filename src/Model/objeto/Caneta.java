@@ -2,7 +2,7 @@ package Model.objeto;
 
 import Model.sessoes.Papelaria;
 
-public abstract class Caneta extends Papelaria {
+public class Caneta extends Papelaria {
 
     private String ponta;
 
@@ -15,13 +15,13 @@ public abstract class Caneta extends Papelaria {
 
     public void setPonta(String ponta) {this.ponta = ponta;}
 
-    public void editarProduto(String nome, float preco, int quantidade, String cor, String marca, String especificacoes, String ponta) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setCor(cor);
-        this.setMarca(marca);
-        this.setEspecificacoes(especificacoes);
-        this.setPonta(ponta);
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Cor: " + getCor());
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Especificações: " + getEspecificacoes());
+        System.out.println("Ponta: " + getPonta());
     }
 }

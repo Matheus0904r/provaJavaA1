@@ -18,23 +18,13 @@ public class Pneu extends Ferragens {
     public float getDiametro() { return diametro; }
     public void setDiametro(float diametro) { this.diametro = diametro; }
 
-    public void editarProduto (String nome, float preco, int quantidade, float peso, String marca, float diametro, String textura) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setPeso(peso);
-        this.setMarca(marca);
-        this.setDiametro(diametro);
-        this.setTextura(textura);
-    }
-    public String toString() {
-        return "Nome: " + this.getNome() +
-                "Preço: " + this.getPreco() +
-                "Quantidade: " + this.getQuantidade() +
-                "Peso: " + this.getPeso() +
-                "Marca: " + this.getMarca() +
-                "Diametro: " + this.getDiametro() +
-                "Textura: " + this.getTextura();
-
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Peso: " + getPeso());
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Diametro: " + getDiametro());
+        System.out.println("Textura: " + getTextura());
     }
 }

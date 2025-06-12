@@ -18,25 +18,14 @@ public class Bola extends Brinquedo {
     public void setCor(String cor) { this.cor = cor; }
     public void setCosturada(boolean costurada) { this.costurada = costurada; }
 
-    public void editarProduto(String nome, float preco, int quantidade, String faixaEtaria, String material, String genero, String cor, boolean costurada) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setFaixaEtaria(faixaEtaria);
-        this.setMaterial(material);
-        this.setGenero(genero);
-        this.setCor(cor);
-        this.setCosturada(costurada);
-    }
-
-    public String toString() {
-        return "Nome: " + this.getNome() +
-                "Preço: " + this.getPreco() +
-                "Quantidade: " + this.getQuantidade() +
-                "Faixa etaria: " + this.getFaixaEtaria() +
-                "Marca: " + this.getMaterial() +
-                "Genero: " + this.getGenero() +
-                "Cor: " + this.getCor() +
-                "Costurada: " + this.getCosturada();
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Faixa Etária: " + getFaixaEtaria());
+        System.out.println("Material: " + getMaterial());
+        System.out.println("Genero: " + getGenero());
+        System.out.println("Cor: " + getCor());
+        System.out.println("Costurada: " + getCosturada());
     }
 }

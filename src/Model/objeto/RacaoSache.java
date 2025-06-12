@@ -18,26 +18,15 @@ public class RacaoSache extends Pet {
     public void setSabor(String sabor) { this.sabor = sabor; }
     public void setML(int ml) { this.ml = ml; }
 
-    public void editarProduto(String nome, float preco, int quantidade, String tipo, String uso, float tamanho, String marca, String sabor, int ml){
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setTipo(tipo);
-        this.setUso(uso);
-        this.setTamanho(tamanho);
-        this.setMarca(marca);
-        this.setSabor(sabor);
-        this.setML(ml);
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Tipo: " + getTipo());
+        System.out.println("Uso: " + getUso());
+        System.out.println("Tamanho: " + getTamanho());
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Sabor: " + getSabor());
+        System.out.println("Ml: " + getML());
     }
-    public String toString() {
-        return "Nome: " + this.getNome() +
-                "Preço: " + this.getPreco() +
-                "Quantidade: " + this.getQuantidade() +
-                "Tipo: " + this.getTipo() +
-                "Uso: " + this.getUso() +
-                "Tamnho: " + this.getTamanho() +
-                "Marca: " + this.getMarca() +
-                "Sabor: " + this.getSabor()+
-                "Ml: " + this.getML();
-  }
 }

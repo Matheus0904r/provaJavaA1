@@ -15,13 +15,13 @@ public abstract class CadeiraDePraia extends Lazer {
 
     public void setPosicoes(String posicoes) {this.posicoes = posicoes;}
 
-    public void editarProduto(String nome, float preco, int quantidade, boolean usoExterno, String capacidade, String material, String posicoes) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setUsoExterno(usoExterno);
-        this.setCapacidade(capacidade);
-        this.setMaterial(material);
-        this.setPosicoes(posicoes);
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Uso Externo: " + getUsoExterno());
+        System.out.println("Capacidade: " + getCapacidade());
+        System.out.println("Material: " + getMaterial());
+        System.out.println("Posições: " + getPosicoes());
     }
 }

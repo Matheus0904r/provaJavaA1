@@ -1,5 +1,6 @@
 package Model.objeto;
 
+import Model.Produto;
 import Model.sessoes.Lazer;
 
 public class Barraca extends Lazer {
@@ -14,13 +15,13 @@ public class Barraca extends Lazer {
 
     public void setAltura(float altura) { this.altura = altura; }
 
-    public void editarProduto(String nome, float preco, int quantidade, boolean usoExterno, String capacidade, String material, String cor, boolean costurada) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setUsoExterno(usoExterno);
-        this.setCapacidade(capacidade);
-        this.setMaterial(material);
-        this.setAltura(altura);
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Uso Externo: " + getUsoExterno());
+        System.out.println("Capacidade: " + getCapacidade());
+        System.out.println("Material: " + getMaterial());
+        System.out.println("Altura: " + getAltura());
     }
 }

@@ -15,14 +15,13 @@ public class Caderno extends Papelaria {
 
     public void setNroFolhas(int nroFolhas) {this.nroFolhas = nroFolhas;}
 
-
-    public void editarProduto(String nome, float preco, int quantidade, String cor, String marca, String especificacoes, int nroFolhas) {
-        this.setNome(nome);
-        this.setPreco(preco);
-        this.setQuantidade(quantidade);
-        this.setCor(cor);
-        this.setMarca(marca);
-        this.setEspecificacoes(especificacoes);
-        this.setNroFolhas(nroFolhas);
+    public void mostrarValores() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: " + getPreco());
+        System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("Cor: " + getCor());
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Especificações: " + getEspecificacoes());
+        System.out.println("Número de Folhas: " + getNroFolhas());
     }
 }
