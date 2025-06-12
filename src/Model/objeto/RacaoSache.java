@@ -29,4 +29,15 @@ public class RacaoSache extends Pet {
         this.setSabor(sabor);
         this.setML(ml);
     }
+    public String toString() {
+        return "Nome: " + this.getNome() +
+                "Preço: " + this.getPreco() +
+                "Quantidade: " + this.getQuantidade() +
+                "Tipo: " + this.getTipo() +
+                "Uso: " + this.getUso() +
+                "Tamnho: " + this.getTamanho() +
+                "Marca: " + this.getMarca() +
+                "Sabor: " + this.getSabor()+
+                "Ml: " + this.getML();
+  }
 }

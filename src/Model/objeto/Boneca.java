@@ -28,4 +28,15 @@ public class Boneca extends Brinquedo {
         this.setCor(cor);
         this.setRoupa(roupa);
     }
+
+    public String toString() {
+        return "Nome: " + this.getNome() +
+                "Preço: " + this.getPreco() +
+                "Quantidade: " + this.getQuantidade() +
+                "Faixa etaria: " + this.getFaixaEtaria() +
+                "Material : " + this.getMaterial() +
+                "Genero: " + this.getGenero() +
+                "Cor: " + this.getCor() +
+                "Roupa :" + this.getRoupa();
+    }
 }

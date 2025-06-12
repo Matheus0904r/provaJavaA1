@@ -29,4 +29,15 @@ public class Coleira extends Pet {
         this.setCor(cor);
         this.setPingente(pingente);
     }
+    public String toString() {
+        return "Nome: " + this.getNome() +
+                "Preço: " + this.getPreco() +
+                "Quantidade: " + this.getQuantidade() +
+                "Tipo: " + this.getTipo() +
+                "Uso: " + this.getUso() +
+                "Tamnho: " + this.getTamanho() +
+                "Marca: " + this.getMarca() +
+                "Cor: " + this.getCor()+
+                "Pingente: " + this.getPingente();
+    }
 }

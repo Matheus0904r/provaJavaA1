@@ -30,5 +30,16 @@ public class Shampoo extends Pet {
         this.setML(ml);
         this.setAntipulgas(antipulgas);
     }
+    public String toString() {
+        return "Nome: " + this.getNome() +
+                "Preço: " + this.getPreco() +
+                "Quantidade: " + this.getQuantidade() +
+                "Tipo: " + this.getTipo() +
+                "Uso: " + this.getUso() +
+                "Tamnho: " + this.getTamanho() +
+                "Marca: " + this.getMarca() +
+                "Ml: " + this.getMl()+
+                "Antipulgas: " + this.getAntipulgas();
+    }
 
 }
