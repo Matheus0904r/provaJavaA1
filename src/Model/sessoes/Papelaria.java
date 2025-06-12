@@ -12,7 +12,7 @@ public abstract class Papelaria extends Produto {
         super(nome, preco, quantidade);
         this.setCor(cor);
         this.setMarca(marca);
-        this.setEpecificacoes(especificacoes);
+        this.setEspecificacoes(especificacoes);
     }
 
     public String getCor() { return cor; }
@@ -21,6 +21,6 @@ public abstract class Papelaria extends Produto {
     
     public void setCor(String cor) { this.cor = cor; }
     public void setMarca(String marca) { this.marca = marca; }
-    public void setEpecificacoes(String especificacoes) { this.especificacoes = especificacoes; }
+    public void setEspecificacoes(String especificacoes) { this.especificacoes = especificacoes; }
 
 }
