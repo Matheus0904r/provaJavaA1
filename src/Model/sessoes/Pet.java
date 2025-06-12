@@ -18,32 +18,13 @@ public abstract class Pet extends Produto {
         this.marca = marca;
     }
 
-    public String gettipo() {
-        return tipo;
-    }
-
-    public String getuso() {
-        return uso;
-    }
-
-    public String getmarca() {
-        return marca;
-    }
-
-    public void settipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public void setuso(String uso) {
-        this.uso = uso;
-    }
-
-    public void settamanho(float tamanho) {
-        this.tamanho = tamanho;
-    }
-
-    public void setmarca(String marca) {
-        this.marca = marca;
-    }
-
+    public String getTipo() { return tipo; }
+    public String getUso() { return uso; }
+    public float getTamanho() { return tamanho; }
+    public String getMarca() { return marca; }
+    
+    public void setTipo(String tipo) { this.tipo = tipo; }
+    public void setUso(String uso) { this.uso = uso; }
+    public void setTamanho(float tamanho) { this.tamanho = tamanho; }
+    public void setMarca(String marca) { this.marca = marca; }
 }
