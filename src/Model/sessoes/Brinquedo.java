@@ -15,31 +15,13 @@ public abstract class Brinquedo extends Produto {
         this.setGenero(genero);
     }
 
-    public String getFaixaEtaria() {
-        return faixaEtaria;
-    }
-
-    public String getMaterial() {
-        return material;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setFaixaEtaria(String faixaEtaria) {
-        this.faixaEtaria = faixaEtaria;
-    }
-
-    public void setMaterial(String material) {
-        this.material = material;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    protected abstract void editarProduto(String nome, float preco, int quantidade, String faixaEtaria, String material, String genero, String cor, boolean costurada);
+    public String getFaixaEtaria() { return faixaEtaria; }
+    public String getMaterial() { return material; }
+    public String getGenero() { return genero; }
+    
+    public void setFaixaEtaria(String faixaEtaria) { this.faixaEtaria = faixaEtaria; }
+    public void setMaterial(String material) { this.material = material; }
+    public void setGenero(String genero) { this.genero = genero; }
 }
 
 
