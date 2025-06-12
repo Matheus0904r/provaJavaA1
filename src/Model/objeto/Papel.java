@@ -23,4 +23,14 @@ public class Papel extends Papelaria {
         this.setEspecificacoes(especificacoes);
         this.setTipo(tipo);
     }
+
+    public String toString() {
+        return  "Nome: " + this.getNome() +
+                "Preço: " + this.getPreco() +
+                "Quantidade: " + this.getQuantidade() +
+                "Cor: " + this.getCor() +
+                "Marca: " + this.getMarca() +
+                "Especificações: " + this.getEspecificacoes() +
+                "Tipo: " + this.getTipo();
+    }
 }

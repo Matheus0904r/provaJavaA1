@@ -13,7 +13,7 @@ public class Bola extends Brinquedo {
     }
 
     public String getCor() { return cor; }
-    public boolean isCosturada() { return costurada; }
+    public String getCosturada() { return Boolean.toString(costurada); }
     
     public void setCor(String cor) { this.cor = cor; }
     public void setCosturada(boolean costurada) { this.costurada = costurada; }
@@ -27,5 +27,16 @@ public class Bola extends Brinquedo {
         this.setGenero(genero);
         this.setCor(cor);
         this.setCosturada(costurada);
+    }
+
+    public String toString() {
+        return "Nome: " + this.getNome() +
+                "Preço: " + this.getPreco() +
+                "Quantidade: " + this.getQuantidade() +
+                "Faixa etaria: " + this.getFaixaEtaria() +
+                "Marca: " + this.getMaterial() +
+                "Genero: " + this.getGenero() +
+                "Cor: " + this.getCor() +
+                "Costurada: " + this.getCosturada();
     }
 }
