@@ -13,15 +13,12 @@ public class Carrinho extends Brinquedo {
     }
 
     public String getCor() {return cor;}
-
     public String getRoda() { return roda;}
 
     public void setRoda(String roda) { this.roda = roda;}
-
     public void setCor(String cor) { this.cor = cor; }
 
     public void editarProduto (String nome, float preco, int quantidade, String faixaEtaria, String material, String genero, String cor, String roda) {
-
         this.setNome(nome);
         this.setPreco(preco);
         this.setQuantidade(quantidade);
