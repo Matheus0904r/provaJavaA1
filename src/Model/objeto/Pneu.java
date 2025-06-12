@@ -18,5 +18,13 @@ public class Pneu extends Ferragens {
     public float getDiametro() { return diametro; }
     public void setDiametro(float diametro) { this.diametro = diametro; }
 
-
+    public void editarProduto (String nome, float preco, int quantidade, float peso, String marca, String genero, float diametro, String textura) {
+        this.setNome(nome);
+        this.setPreco(preco);
+        this.setQuantidade(quantidade);
+        this.setPeso(peso);
+        this.setMarca(marca);
+        this.setDiametro(diametro);
+        this.setTextura(textura);
+    }
 }
