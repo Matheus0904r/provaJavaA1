@@ -5,7 +5,6 @@ public abstract class Produto {
     private float preco;
     private int quantidade;
 
-
     public Produto(String nome, float preco, int quantidade) {
         this.setNome(nome);
         this.setPreco(preco);
@@ -35,7 +34,4 @@ public abstract class Produto {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-
-    protected abstract void editarProduto(String nome, float preco, int quantidade, String faixaEtaria, String material, String genero, String cor, boolean costurada);
-
 }
