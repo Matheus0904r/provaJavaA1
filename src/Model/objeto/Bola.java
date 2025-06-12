@@ -28,4 +28,14 @@ public class Bola extends Brinquedo {
         this.setCor(cor);
         this.setCosturada(costurada);
     }
+    public String toString() {
+        return  "Nome: " + this.getNome() +
+                "Preço: " + this.getPreco() +
+                "Quantidade: " + this.getQuantidade() +
+                "Faixa etaria: " + this.getFaixaEtaria() +
+                "Marca: " + this.getMaterial() +
+                "Genero: " + this.getGenero() +
+                "Cor: " + this.getCor() +
+                "Costurada: " + this.isCosturada();
+
 }
