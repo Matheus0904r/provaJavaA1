@@ -46,6 +46,4 @@ public abstract class Pet extends Produto {
         this.marca = marca;
     }
 
-    protected abstract void editarProduto(String nome, float preco, int quantidade, String tipo, String uso, float tamanho, String marca);
-
 }
