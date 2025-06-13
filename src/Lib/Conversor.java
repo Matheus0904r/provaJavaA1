@@ -4,9 +4,9 @@ public class Conversor {
     public static Object classeParaValor(Class<?> tipo, String valor) {
         try {
             if (tipo == String.class) return valor;
-            if (tipo == Integer.class) return Integer.parseInt(valor);
-            if (tipo == Float.class) return Float.parseFloat(valor);
-            if (tipo == Boolean.class) return Boolean.parseBoolean(valor);
+            if (tipo == Integer.class || tipo == int.class) return Integer.parseInt(valor);
+            if (tipo == Float.class || tipo == float.class) return Float.parseFloat(valor + "f");
+            if (tipo == Boolean.class || tipo == boolean.class) return Boolean.parseBoolean(valor);
         } catch (NumberFormatException E) {
             System.out.println("Input inválido.");
         }

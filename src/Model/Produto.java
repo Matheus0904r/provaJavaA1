@@ -2,9 +2,10 @@ package Model;
 
 import Lib.*;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 
-public abstract class Produto {
+public abstract class Produto implements Serializable {
     private String nome;
     private float preco;
     private int quantidade;

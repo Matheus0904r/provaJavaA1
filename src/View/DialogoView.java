@@ -9,6 +9,8 @@ import Model.Produto;
 import java.io.File;
 import java.lang.reflect.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -67,16 +69,24 @@ public class DialogoView {
         }
 
         Constructor<?> construtor = clazz.getDeclaredConstructors()[0];
-        Class<?>[] tiposParametros = construtor.getParameterTypes();
         Field[] campos = clazz.getDeclaredFields();
+        List<Field> todosCampos = new ArrayList<>(Arrays.asList(campos));
         List<Object> argumentos = new ArrayList<>();
+        // Class<?>[] tiposParametros = construtor.getParameterTypes();
+        Class<?> superClasse = clazz.getSuperclass();
 
-        for (int i = 0; i < tiposParametros.length; i++) {
-            Field campo = campos[i];
+        while (superClasse != null && superClasse != Object.class) {
+            todosCampos.addAll(0, Arrays.asList(superClasse.getDeclaredFields()));
+            superClasse = superClasse.getSuperclass();
+        }
+
+        campos = todosCampos.toArray(new Field[0]);
+
+        for (Field campo: campos) {
             campo.setAccessible(true);
 
             String nome = campo.getName();
-            Class<?> tipo = tiposParametros[i];
+            Class<?> tipo = campo.getType();
 
             String entrada = input.lerStr("Digite o valor para (" + tipo.getSimpleName() + ") " + nome + ": ");
 
@@ -98,17 +108,33 @@ public class DialogoView {
 
         ArrayList<Produto> produtos = Estoque.getProdutos();
 
+        if (produtos.size() == 0) {
+            System.out.println("Não existem produtos para ser editado");
+            return;
+        }
+
         int i = -1;
         do {
             i = input.lerInt("Escolha um id para editar: ");
             if (i < 0 || i > produtos.size()) { System.out.println("Id inválido."); }
         } while (i < 0 || i > produtos.size());
 
-        Estoque.editarProduto(produtos.get(i));
+        Estoque.editarProduto(produtos.get(i - 1));
     }
 
     public static void removerProduto() {
+        Estoque.listarProdutos();
 
+        ArrayList<Produto> produtos = Estoque.getProdutos();
+        int i = -1;
+        do {
+            i = input.lerInt("Escolha um id para remover: ");
+            if (i < 0 || i > produtos.size()) { System.out.println("Id inválido."); }
+        } while (i < 0 || i > produtos.size());
+
+        Produto deletar = produtos.get(i - 1);
+
+        Estoque.removerProduto(deletar);
     }
 
     public static void listar() {

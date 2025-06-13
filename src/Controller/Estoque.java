@@ -11,6 +11,10 @@ public class Estoque {
     private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 
     public static void listarProdutos() {
+        if (produtos.size() == 0) {
+            System.out.println("Nenhum produto a ser listado");
+        }
+
         for (int i = 0; i < produtos.size(); i++) {
             Produto p = produtos.get(i);
             System.out.println((i + 1) + " | " + p.getNome());
@@ -63,4 +67,8 @@ public class Estoque {
     }
 
     public static ArrayList<Produto> getProdutos() { return produtos; }
+
+    public static void setProdutos(ArrayList<Produto> lista) {
+        produtos = lista;
+    }
 }

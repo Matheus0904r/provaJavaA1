@@ -2,6 +2,8 @@ package Model.sessoes;
 
 import Model.Produto;
 
+import java.io.Serializable;
+
 public abstract class Brinquedo extends Produto {
 
     private String faixaEtaria;

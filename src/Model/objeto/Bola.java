@@ -2,6 +2,8 @@ package Model.objeto;
 
 import Model.sessoes.Brinquedo;
 
+import java.io.Serializable;
+
 public class Bola extends Brinquedo {
     private String cor;
     private boolean costurada;
