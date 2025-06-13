@@ -70,4 +70,8 @@ Pasta data/
 
 A documentação aqui apresentada tem por finalidade apoiar a compreensão e manutenção do sistema por outros desenvolvedores ou futuros integrantes do projeto.
 
+GPT:
+Para o GPT usamos apenas pra pensar e ajeitar a estrutura do código, e para pegar as variaveis dos objetos dinamicamente.
+
+
 
