@@ -7,13 +7,14 @@ public class DialogoController {
         int opc;
         do {
             opc = DialogoView.mostrarMenu();
+            System.out.println();
             verificarOpcao(opc);
         } while (opc != 6);
     }
 
     private static void verificarOpcao(int opc) {
         switch (opc) {
-            case 1 -> DialogoView.listar();
+            case 1 -> DialogoView.listarProdutos();
             case 2 -> DialogoView.listarPorNome();
             case 3 -> DialogoView.criarProduto();
             case 4 -> DialogoView.editarProduto();
@@ -22,9 +23,4 @@ public class DialogoController {
             default -> DialogoView.textoOpcaoInvalida();
         }
     }
-
-
-
-
-
 }

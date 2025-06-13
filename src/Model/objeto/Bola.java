@@ -4,7 +4,7 @@ import Model.sessoes.Brinquedo;
 
 import java.io.Serializable;
 
-public class Bola extends Brinquedo {
+public class Bola extends Brinquedo implements Serializable {
     private String cor;
     private boolean costurada;
 

@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Ferragens;
 
-public class Tinta extends Ferragens {
+import java.io.Serializable;
+
+public class Tinta extends Ferragens implements Serializable {
 
     private String metalica;
 

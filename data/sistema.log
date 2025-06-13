@@ -1,0 +1,5 @@
+13-06-2025 | 13:22:31 - java.io.InvalidClassException: Model.Produto; local class incompatible: stream classdesc serialVersionUID = 4207776295785588404, local class serialVersionUID = -3885490772631101363
+13-06-2025 | 13:23:09 - Produto Criado (bola nike)
+13-06-2025 | 13:24:08 - Produto Criado (caneta bic)
+13-06-2025 | 13:24:57 - Produto Editado (caneta bic)
+13-06-2025 | 13:26:42 - Produto Apagado (bola nike)

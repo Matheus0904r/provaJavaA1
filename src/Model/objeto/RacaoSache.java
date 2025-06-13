@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Pet;
 
-public class RacaoSache extends Pet {
+import java.io.Serializable;
+
+public class RacaoSache extends Pet implements Serializable {
     private String sabor;
     private int ml;
 

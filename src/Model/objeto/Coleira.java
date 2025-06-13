@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Pet;
 
-public class Coleira extends Pet {
+import java.io.Serializable;
+
+public class Coleira extends Pet implements Serializable {
     private String cor;
     private String pingente;
 

@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Brinquedo;
 
-public class Boneca extends Brinquedo {
+import java.io.Serializable;
+
+public class Boneca extends Brinquedo implements Serializable {
     private String cor;
     private String roupa;
 

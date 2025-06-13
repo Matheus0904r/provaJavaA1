@@ -4,7 +4,7 @@ import Model.Produto;
 
 import java.io.Serializable;
 
-public abstract class Brinquedo extends Produto {
+public abstract class Brinquedo extends Produto implements Serializable {
 
     private String faixaEtaria;
     private String material;

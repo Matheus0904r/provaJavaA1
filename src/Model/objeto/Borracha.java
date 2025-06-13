@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Papelaria;
 
-public class Borracha extends Papelaria {
+import java.io.Serializable;
+
+public class Borracha extends Papelaria implements Serializable {
 
     private String formato;
 

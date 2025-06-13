@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Lazer;
 
-public abstract class CadeiraDePraia extends Lazer {
+import java.io.Serializable;
+
+public abstract class CadeiraDePraia extends Lazer implements Serializable {
 
     private String posicoes;
 

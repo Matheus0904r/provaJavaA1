@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Papelaria;
 
-public class Caneta extends Papelaria {
+import java.io.Serializable;
+
+public class Caneta extends Papelaria implements Serializable {
 
     private String ponta;
 

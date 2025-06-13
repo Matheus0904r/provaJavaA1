@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Pet;
 
-public class Shampoo extends Pet {
+import java.io.Serializable;
+
+public class Shampoo extends Pet implements Serializable {
     private String antipulgas;
     private int ml;
 

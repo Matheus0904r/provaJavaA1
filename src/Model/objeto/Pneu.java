@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Ferragens;
 
-public class Pneu extends Ferragens {
+import java.io.Serializable;
+
+public class Pneu extends Ferragens implements Serializable {
     private float diametro;
     private String textura;
     

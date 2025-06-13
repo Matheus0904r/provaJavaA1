@@ -23,17 +23,7 @@ public class Serializador {
             DialogoView.textoSalvamentoSucesso();
         } catch (IOException e) {
             Logging.registrar(e.toString());
-            System.out.println(e.toString());
-            DialogoView.textoSalvamentoFracasso();
-        }
-    }
-
-    public static void salvar(ArrayList<Produto> produtos) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(CAMINHO))) {
-            oos.writeObject(produtos);
-            DialogoView.textoSalvamentoSucesso();
-        } catch (IOException e) {
-            Logging.registrar(e.toString());
+            System.out.println(e.getMessage());
             DialogoView.textoSalvamentoFracasso();
         }
     }
@@ -45,7 +35,7 @@ public class Serializador {
 
         } catch (IOException | ClassNotFoundException e) {
 
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
             Logging.registrar(e.toString());
             DialogoView.textoCarregamentoFracassado();
 

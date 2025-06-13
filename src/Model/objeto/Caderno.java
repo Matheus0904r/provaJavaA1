@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Papelaria;
 
-public class Caderno extends Papelaria {
+import java.io.Serializable;
+
+public class Caderno extends Papelaria implements Serializable {
 
     private int nroFolhas;
 

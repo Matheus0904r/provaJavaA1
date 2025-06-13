@@ -3,7 +3,9 @@ package Model.sessoes;
 
 import Model.Produto;
 
-public abstract class Pet extends Produto {
+import java.io.Serializable;
+
+public abstract class Pet extends Produto implements Serializable {
 
     private String tipo;
     private String uso;
@@ -12,10 +14,10 @@ public abstract class Pet extends Produto {
 
     public Pet(String nome, float preco, int quantidade, String tipo, String uso, float tamanho, String marca) {
         super(nome, preco, quantidade);
-        this.tipo = tipo;
-        this.uso = uso;
-        this.tamanho = tamanho;
-        this.marca = marca;
+        this.setTipo(tipo);
+        this.setUso(uso);
+        this.setTamanho(tamanho);
+        this.setMarca(marca);
     }
 
     public String getTipo() { return tipo; }

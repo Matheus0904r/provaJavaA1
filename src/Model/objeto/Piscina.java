@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Lazer;
 
-public class Piscina extends Lazer{
+import java.io.Serializable;
+
+public class Piscina extends Lazer implements Serializable {
 
     private float litros;
 

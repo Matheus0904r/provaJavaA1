@@ -2,7 +2,9 @@ package Model.sessoes;
 
 import Model.Produto;
 
-public abstract class Ferragens extends Produto {
+import java.io.Serializable;
+
+public abstract class Ferragens extends Produto implements Serializable {
 
     private float peso;
     private String marca;

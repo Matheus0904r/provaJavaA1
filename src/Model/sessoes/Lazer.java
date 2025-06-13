@@ -2,7 +2,9 @@ package Model.sessoes;
 
 import Model.Produto;
 
-public abstract class Lazer extends Produto {
+import java.io.Serializable;
+
+public abstract class Lazer extends Produto implements Serializable {
 
     private boolean usoExterno;
     private String capacidade;

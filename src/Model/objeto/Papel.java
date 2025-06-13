@@ -2,7 +2,9 @@ package Model.objeto;
 
 import Model.sessoes.Papelaria;
 
-public class Papel extends Papelaria {
+import java.io.Serializable;
+
+public class Papel extends Papelaria implements Serializable  {
     private String tipo;
 
     public Papel(String nome, float preco, int quantidade, String cor, String marca, String especificacoes, String tipo) {

@@ -1,7 +1,6 @@
 package View;
 
 import Controller.Estoque;
-import Lib.Conversor;
 import Lib.Logging;
 import Lib.input;
 import Model.Produto;
@@ -10,13 +9,10 @@ import java.io.File;
 import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 
 public class DialogoView {
-
-
     public static int mostrarMenu() {
         System.out.println("\n===== Gerenciamento de Estoque  =====");
         System.out.println("1. Ver Produtos");
@@ -30,15 +26,17 @@ public class DialogoView {
     }
 
     public static void criarProduto() {
-        Object obj = null;
+        // Pegar categoria
         String sessao = "";
         while (sessao.isBlank()) {
             System.out.println("== Categories Disponíveis ==");
             listarArquivosEm("src/Model/sessoes");
+
             String categoria = input.lerStr("Escolha uma categoria: ");
+            System.out.println();
 
             try {
-                obj = Class.forName("Model.sessoes." + categoria);
+                Class.forName("Model.sessoes." + categoria);
                 sessao = categoria;
             } catch (ClassNotFoundException E) {
                 System.out.println("Categoria não existe.");
@@ -49,6 +47,7 @@ public class DialogoView {
             }
         }
 
+        // Pegar objeto
         Class<?> clazz = null;
         String produtoTipo = "";
         while (clazz == null) {
@@ -68,11 +67,9 @@ public class DialogoView {
             }
         }
 
-        Constructor<?> construtor = clazz.getDeclaredConstructors()[0];
-        Field[] campos = clazz.getDeclaredFields();
-        List<Field> todosCampos = new ArrayList<>(Arrays.asList(campos));
+        // Pedir informações do objeto
+        List<Field> todosCampos = new ArrayList<>( Arrays.asList( clazz.getDeclaredFields() ) );
         List<Object> argumentos = new ArrayList<>();
-        // Class<?>[] tiposParametros = construtor.getParameterTypes();
         Class<?> superClasse = clazz.getSuperclass();
 
         while (superClasse != null && superClasse != Object.class) {
@@ -80,23 +77,30 @@ public class DialogoView {
             superClasse = superClasse.getSuperclass();
         }
 
-        campos = todosCampos.toArray(new Field[0]);
-
-        for (Field campo: campos) {
+        for (Field campo: todosCampos.toArray( new Field[0] )) {
             campo.setAccessible(true);
 
             String nome = campo.getName();
             Class<?> tipo = campo.getType();
 
-            String entrada = input.lerStr("Digite o valor para (" + tipo.getSimpleName() + ") " + nome + ": ");
+            // Perguntar até responder o tipo certo
+            Object convertido;
+            do {
+                String entrada = input.lerStr(tipo.getSimpleName() + " | Digite o valor para " + nome + ": ");
+                convertido = input.converterClasseParaValor(tipo, entrada);
+            } while (convertido == null);
 
-            Object convertido = Conversor.classeParaValor(tipo, entrada);
             argumentos.add(convertido);
         }
 
+        // Criar objeto
+        Constructor<?> construtor = clazz.getDeclaredConstructors()[0];
+
+        System.out.println();
         try {
             Produto produto = (Produto) construtor.newInstance(argumentos.toArray());
             Estoque.inserirProduto(produto);
+            System.out.println("Produto adicionado com sucesso!");
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
             System.out.println("Erro ao criar produto");
             Logging.registrar("Erro na criação do produto");
@@ -104,29 +108,32 @@ public class DialogoView {
     }
 
     public static void editarProduto() {
-        Estoque.listarProdutos();
+        Estoque.listarSimplificadoComId();
 
         ArrayList<Produto> produtos = Estoque.getProdutos();
 
-        if (produtos.size() == 0) {
+        if (produtos.isEmpty()) {
             System.out.println("Não existem produtos para ser editado");
             return;
         }
 
-        int i = -1;
-        do {
-            i = input.lerInt("Escolha um id para editar: ");
-            if (i < 0 || i > produtos.size()) { System.out.println("Id inválido."); }
-        } while (i < 0 || i > produtos.size());
+        int i;
+        while (true) {
+            i = input.lerInt("Escolha um id para editar:") - 1;
 
-        Estoque.editarProduto(produtos.get(i - 1));
+            if (i < 0 || i > produtos.size()) { System.out.println("Id inválido."); }
+            else { break; }
+        }
+
+        Estoque.editarProduto(produtos.get(i));
+        System.out.println("Produto editado com sucesso!");
     }
 
     public static void removerProduto() {
-        Estoque.listarProdutos();
+        Estoque.listarSimplificadoComId();
 
         ArrayList<Produto> produtos = Estoque.getProdutos();
-        int i = -1;
+        int i;
         do {
             i = input.lerInt("Escolha um id para remover: ");
             if (i < 0 || i > produtos.size()) { System.out.println("Id inválido."); }
@@ -135,20 +142,27 @@ public class DialogoView {
         Produto deletar = produtos.get(i - 1);
 
         Estoque.removerProduto(deletar);
-    }
-
-    public static void listar() {
-        Estoque.listarProdutos();
+        System.out.println("Produto removido com sucesso!");
     }
 
     public static void listarPorNome() {
+        if (Estoque.getProdutos().isEmpty()) {
+            System.out.println("Nenhum produto a ser listado");
+            return;
+        }
+
         String nome = input.lerStr("Nome do produto que está procurando: ");
-        Estoque.listarProdutos( nome );
+        Estoque.listarPorNome( nome );
     }
 
     public static void listarArquivosEm(String path) {
         File pasta = new File(path);
         File[] arquivos = pasta.listFiles();
+
+        if ( arquivos == null ) {
+            Logging.registrar("Arquivos não encontrados.");
+            return;
+        }
 
         for (File arquivo : arquivos) {
             System.out.println(arquivo.getName().replace(".java", ""));
@@ -159,6 +173,11 @@ public class DialogoView {
         System.out.println("== Produtos Disponíveis ==");
         File pasta = new File("src/Model/objeto");
         File[] arquivos = pasta.listFiles();
+
+        if ( arquivos == null ) {
+            Logging.registrar("Arquivos não encontrados.");
+            return;
+        }
 
         for (File arquivo: arquivos) {
             String nomeCompleto = "Model.objeto." + arquivo.getName().replace(".java", "");
@@ -180,4 +199,7 @@ public class DialogoView {
     public static void textoCarregamentoFracassado() { System.out.println("Erro ao carregar produtos!"); }
 
 
+    public static void listarProdutos() {
+        Estoque.listarSimplificado();
+    }
 }

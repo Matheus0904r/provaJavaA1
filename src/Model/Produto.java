@@ -1,9 +1,6 @@
 package Model;
 
-import Lib.*;
-
 import java.io.Serializable;
-import java.lang.reflect.Field;
 
 public abstract class Produto implements Serializable {
     private String nome;
@@ -25,27 +22,4 @@ public abstract class Produto implements Serializable {
     public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
 
     public abstract void mostrarValores();
-
-    public String toString(Produto p) {
-        String string = "";
-
-        Class<?> clazz = p.getClass();
-
-        while (clazz != null && clazz != Object.class) {
-            Field[] fields = clazz.getDeclaredFields();
-
-            for (Field field : fields) {
-                try {
-                    field.setAccessible(true);
-                    string = string + (string.isBlank() ? "" : ",") + field.getName() + ":" + field.get(p) + ":" + field.getType();
-                } catch (IllegalAccessException E) {
-                    System.out.println(E);
-                }
-            }
-
-            clazz = clazz.getSuperclass();
-        }
-
-        return string;
-    }
 }

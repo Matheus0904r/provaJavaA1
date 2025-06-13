@@ -2,7 +2,9 @@ package Model.sessoes;
 
 import Model.Produto;
 
-public abstract class Papelaria extends Produto {
+import java.io.Serializable;
+
+public abstract class Papelaria extends Produto implements Serializable {
 
     private String cor;
     private String marca;

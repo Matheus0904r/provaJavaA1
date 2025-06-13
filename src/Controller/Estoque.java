@@ -1,6 +1,6 @@
 package Controller;
 
-import Lib.Conversor;
+import Lib.Logging;
 import Lib.input;
 import Model.Produto;
 
@@ -10,9 +10,10 @@ import java.util.ArrayList;
 public class Estoque {
     private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 
-    public static void listarProdutos() {
-        if (produtos.size() == 0) {
+    public static void listarSimplificadoComId() {
+        if (produtos.isEmpty()) {
             System.out.println("Nenhum produto a ser listado");
+            return;
         }
 
         for (int i = 0; i < produtos.size(); i++) {
@@ -23,20 +24,48 @@ public class Estoque {
         }
     }
 
-    public static void listarProdutos(String nome) {
-        int fakeI = 0;
-        for (int i = 0; i < produtos.size(); i++) {
-            Produto p = produtos.get(i);
-            if (!p.getNome().equals(nome)) { continue; }
-            fakeI += 1;
-            System.out.println("--// " + fakeI);
-            p.mostrarValores();
+    public static void listarSimplificado() {
+        if (produtos.isEmpty()) {
+            System.out.println("Nenhum produto a ser listado");
+            return;
+        }
+
+        System.out.println();
+        for (Produto p : produtos) {
+            System.out.println("Nome: " + p.getNome());
+            System.out.println("Quantidade: " + p.getQuantidade());
+            System.out.println("Preço: " + p.getPreco());
+            System.out.println();
         }
     }
 
-    public static void inserirProduto(Produto p) { produtos.add(p); }
+    public static void listarPorNome(String nome) {
+        if (produtos.isEmpty()) {
+            System.out.println("Nenhum produto a ser listado");
+            return;
+        }
+
+        boolean encontrado = false;
+        System.out.println();
+        for (Produto p : produtos) {
+            if (!p.getNome().equals(nome)) { continue; }
+
+            encontrado = true;
+            p.mostrarValores();
+            System.out.println();
+        }
+        if (!encontrado) {
+            System.out.println("Nenhum produto encontrado com este nome.");
+        }
+    }
+
+    public static void inserirProduto(Produto p) {
+        Logging.registrar("Produto Criado (" + p.getNome() + ")");
+        produtos.add(p);
+    }
 
     public static void removerProduto(Produto p) {
+        Logging.registrar("Produto Apagado (" + p.getNome() + ")");
         produtos.remove(p);
     }
 
@@ -56,7 +85,7 @@ public class Estoque {
 
                     if (valor.isBlank()) { continue; }
 
-                    field.set( p, Conversor.classeParaValor( field.getType(), valor ) );
+                    field.set( p, input.converterClasseParaValor( field.getType(), valor ) );
                 } catch (IllegalAccessException E) {
                     System.out.println(E);
                 }
@@ -64,6 +93,8 @@ public class Estoque {
 
             clazz = clazz.getSuperclass();
         }
+
+        Logging.registrar("Produto Editado (" + p.getNome() + ")");
     }
 
     public static ArrayList<Produto> getProdutos() { return produtos; }
