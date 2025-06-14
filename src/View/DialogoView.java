@@ -29,11 +29,18 @@ public class DialogoView {
         // Pegar categoria
         String sessao = "";
         while (sessao.isBlank()) {
+            String path = "src/Model/sessoes";
             System.out.println("== Categories Disponíveis ==");
-            listarArquivosEm("src/Model/sessoes");
+            listarArquivosEm(path);
 
             String categoria = input.lerStr("Escolha uma categoria: ");
             System.out.println();
+
+            for (String nome : getNomeArquivos(path)) {
+                if (nome.toLowerCase().equals(categoria.toLowerCase())) {
+                    categoria = nome;
+                }
+            }
 
             try {
                 Class.forName("Model.sessoes." + categoria);
@@ -53,6 +60,12 @@ public class DialogoView {
         while (clazz == null) {
             listarClassesDeSessao(sessao);
             produtoTipo = input.lerStr("Escolha um produto: ");
+
+            for (String nome : getNomeArquivos("src/Model/objeto")) {
+                if (nome.toLowerCase().equals(produtoTipo.toLowerCase())) {
+                    produtoTipo = nome;
+                }
+            }
 
             try {
                 Class<?> classe = Class.forName("Model.objeto." + produtoTipo);
@@ -155,17 +168,29 @@ public class DialogoView {
         Estoque.listarPorNome( nome );
     }
 
-    public static void listarArquivosEm(String path) {
+    public static ArrayList<String> getNomeArquivos(String path) {
         File pasta = new File(path);
         File[] arquivos = pasta.listFiles();
 
+        ArrayList<String> nomes = new ArrayList<>();
+
         if ( arquivos == null ) {
             Logging.registrar("Arquivos não encontrados.");
-            return;
+            return nomes;
         }
 
         for (File arquivo : arquivos) {
-            System.out.println(arquivo.getName().replace(".java", ""));
+            nomes.add(arquivo.getName().replace(".java", ""));
+        }
+
+        return nomes;
+    }
+
+    public static void listarArquivosEm(String path) {
+        ArrayList<String> nomes = getNomeArquivos(path);
+
+        for (String nome : nomes) {
+            System.out.println(nome);
         }
     }
 

@@ -8,7 +8,7 @@ public class Shampoo extends Pet implements Serializable {
     private String antipulgas;
     private int ml;
 
-    public Shampoo (String nome, float preco, int quantidade, String tipo, String uso, float tamanho, String marca,int ml, String antipulgas) {
+    public Shampoo (String nome, float preco, int quantidade, String tipo, String uso, float tamanho, String marca, String antipulgas, int ml) {
         super(nome, preco, quantidade, tipo, uso, tamanho, marca);
         this.setAntipulgas(antipulgas);
         this.setML(ml);
@@ -28,7 +28,7 @@ public class Shampoo extends Pet implements Serializable {
         System.out.println("Uso: " + getUso());
         System.out.println("Tamanho: " + getTamanho());
         System.out.println("Marca: " + getMarca());
-        System.out.println("Ml: " + getML());
         System.out.println("Antipulgas: " + getAntipulgas());
+        System.out.println("Ml: " + getML());
     }
 }
